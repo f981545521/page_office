@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:tx="http://www.springframework.org/schema/tx" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	   xmlns:p="http://www.springframework.org/schema/p"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd 
        http://www.springframework.org/schema/context 
        http://www.springframework.org/schema/context/spring-context.xsd 
@@ -11,19 +13,20 @@
    	   http://www.springframework.org/schema/mvc
        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-	<!-- 配置扫描的包 -->
-	<context:component-scan base-package="com.zzzy.*" />
-
-	<!-- 注册HandlerMapper、HandlerAdapter两个映射类 -->
-	<mvc:annotation-driven />
+	<!-- 配置组件扫描 -->
+	<context:component-scan base-package="com.zzzy.controller"/>
+	<!-- 增加MVC注解扫描 -->
+	<mvc:annotation-driven/>
 
 	<!-- 访问静态资源 -->
 	<mvc:default-servlet-handler />
-	
+
 	<!-- 视图解析器 -->
-	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/jsp/"></property>
-		<property name="suffix" value=".jsp"></property>
+	<bean id="viewResolver"
+		  class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:order="2">
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+		<property name="prefix" value="/WEB-INF/jsp/"/>
+		<property name="suffix" value=".jsp"/>
 	</bean>
 	
 </beans>
