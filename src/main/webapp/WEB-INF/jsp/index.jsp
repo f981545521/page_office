@@ -13,5 +13,6 @@
 <body>
 Hello PageOffice !<br>
 <a href="javascript:POBrowser.openWindowModeless('word','width=1200px;height=800px;');">在线打开文件</a>
+<a href="javascript:POBrowser.openWindowModeless('word2','width=1200px;height=800px;');">在线打开文件2</a>
 </body>
 </html>
