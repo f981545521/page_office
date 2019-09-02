@@ -12,8 +12,19 @@
 </div>
 <script type="text/javascript">
 	/**
-	 * 印章管理系统
+	 * 印章管理系统：
+	 *
 	 * http://localhost:8080/loginseal.zz
+	 *
+	 * 在web.xml中设置管理员的密码
+	 * 	<context-param>
+	 *		<param-name>adminseal-password</param-name>
+	 *		<param-value>111111</param-value>
+	 *	</context-param>
+	 *
+	 * 登录过后为每个用户名添加印章。
+	 * 1. 用户根据用户名选择下属的印章
+	 * 2. 用户根据印章名盖章
 	 */
 	//加盖印章
 	function AddSeal() {
